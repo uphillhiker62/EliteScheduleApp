@@ -1,10 +1,14 @@
+import { TeamHomePage } from './../pages/team-home/team-home';
+import { TournamentsPage } from './../pages/tournaments/tournaments';
+import { TeamsPage } from './../pages/teams/teams';
+import { TeamDetailPage } from './../pages/team-detail/team-detail';
+import { GamePage } from './../pages/game/game';
+import { MyTeamsPage } from './../pages/my-teams/my-teams';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { StandingsPage } from '../pages/standings/standings';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +16,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = MyTeamsPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,8 +25,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Game', component: GamePage },
+      { title: 'My Teams', component: MyTeamsPage },
+      { title: 'Team Detail', component: TeamDetailPage },
+      { title: 'Teams', component: TeamsPage },
+      { title: 'Tournaments', component: TournamentsPage },
+      { title: 'Standings', component: StandingsPage },
+      { title: 'Team Home', component: TeamHomePage },
     ];
 
   }
@@ -40,5 +49,13 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  goToTournaments() {
+    this.nav.setRoot(TournamentsPage);
+  }
+
+  goHome() {
+    this.nav.setRoot(MyTeamsPage);
   }
 }
