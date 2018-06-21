@@ -16,15 +16,22 @@ import { StandingsPage } from '../standings/standings';
   templateUrl: 'team-home.html',
 })
 export class TeamHomePage {
+  public team: any;
 
   teamDetailTab = TeamDetailPage;
   standingsTab = StandingsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.team = navParams.data.team
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamHomePage');
+    console.log(this.navParams);
+  }
+
+  goHome() {
+    this.navCtrl.popToRoot();
   }
 
 }

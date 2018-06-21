@@ -31,9 +31,6 @@ export class TeamsPage {
   }
 
   itemTapped(event, team) {
-    this.navCtrl.push(TeamHomePage, {
-      team: team
-    });
+    this.navCtrl.push(TeamHomePage, {team: team});
   }
-
 }

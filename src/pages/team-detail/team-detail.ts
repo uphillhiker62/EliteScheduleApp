@@ -18,11 +18,12 @@ export class TeamDetailPage {
   team: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.team = this.navParams.data.team;
+    this.team = this.navParams.data;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamDetailPage');
+    console.log(this.navParams.data);
   }
 
 }
